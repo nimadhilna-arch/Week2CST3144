@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Vue.js Pet Depot</title>
+  <!-- Load Vue.js from a CDN (no local file needed) -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+</head>
+<body>
+  <!-- The element where the Vue app mounts -->
+  <div id="app">
+    <header>
+      <h1 v-text="sitename"></h1>
+    </header>
+    <main>
+        <figure>
+<!-- bind 'src' attr to 'product.image' in 'data' -->
+<img v-bind:src="product.image">
+</figure>
+<h2 v-text="product.title"></h2>
+<p v-text="product.description"></p>
+<p>Price: {{product.price}}</p>
+    </main>
+  </div>
+
+  <script type="text/javascript">
+    var webstore = new Vue({
+      el: '#app',
+      data: {
+        // 'sitename' matches the value of v-text in the template
+        sitename: 'Vue.js Pet Depot',
+        product:{
+        id:1001,
+        title: "Cat FOOd,25lb bag",
+        description:"A 25 pound bag of <em>irrestible</em>," +"organic goodness for ur cat.",
+        price:2000,
+        image:"image/cat.png"
+        }
+      }
+    });
+  </script>
+</body>
+</html>
